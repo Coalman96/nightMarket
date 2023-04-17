@@ -19,7 +19,7 @@ console.log(changeColor)
 //변경점의 article가져오기
 
 const arts = document.querySelectorAll('.descContainer article')
-window.addEventListener('wheel',(e)=>{
+window.addEventListener('scroll',(e)=>{
     // e.preventDefault()
     //현재 스크롤의 상단 좌표구하기
     const currentScr = this.scrollY
