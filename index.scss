@@ -1,0 +1,188 @@
+$mobile: 768px;
+$pc: 769px;
+$bgColors: (
+  "art1": #1e2c5a,
+  "art2": #ffe7d3,
+  "art3": #fffbdf,
+  "art4": #e3d5ff,
+  "art5": #ffdeed,
+  "art6": #eaedc8,
+  "art7": #d7ffef,
+);
+@each $id, $color in $bgColors {
+  ##{$id} {
+    background-color: $color;
+    @if ($color ==#1e2c5a) {
+      color: #fff;
+    }
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media screen and (min-width: $pc) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  vertical-align: top;
+}
+.flex {
+  display: flex;
+}
+
+// menuBar
+.container {
+  width: 5%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+//---------
+header {
+  h1 {
+    margin: 0 auto;
+    img {
+    }
+  }
+}
+.contentsCotainer {
+  swiper-container {
+    @include mobile {
+      height: 450px;
+    }
+    width: 100%;
+    height: 100%;
+  }
+
+  swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .shortCutWrap {
+    height: 100%;
+    ul {
+      height: 100%;
+      flex-wrap: wrap;
+      li {
+        width: 50%;
+        a {
+          figure {
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.descContainer {
+  text-align: center;
+  article {
+    min-height: 800px;
+    .introHead {
+      display: flex;
+      position: sticky;
+      top: 0;
+      li {
+        h2 {
+          height: 100%;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      li:not(:nth-child(2)) {
+        width: 10%;
+        figure {
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .introDesc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      li {
+        width: 80%;
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    h3 {
+      font-size: 4.2vw;
+      padding-bottom: 50px;
+    }
+    .prxBg {
+      padding: 5vh 0;
+      height: 30vh;
+      min-height: 250px;
+      figure {
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+#art1 {
+}
