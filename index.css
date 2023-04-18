@@ -27,6 +27,14 @@
   background-color: #d7ffef;
 }
 
+@font-face {
+  font-family: NanumB;
+  src: url(./fonts/NanumSquareB.woff2);
+}
+@font-face {
+  font-family: NanumR;
+  src: url(./fonts/NanumSquareR.woff2);
+}
 * {
   margin: 0;
   padding: 0;
@@ -42,26 +50,34 @@ a {
   color: inherit;
 }
 
-img {
-  vertical-align: top;
-}
-
 .flex {
   display: flex;
 }
 
+body {
+  background-color: #1e2c5a;
+}
+
 .container {
-  width: 5%;
+  width: 30px;
+  height: 40px;
+  margin-left: 10px;
   display: inline-block;
   cursor: pointer;
+}
+@media screen and (min-width: 769px) {
+  .container {
+    display: none;
+  }
 }
 
 .bar1,
 .bar2,
 .bar3 {
-  width: 35px;
+  width: 30px;
   height: 5px;
-  background-color: #333;
+  background-color: #fff;
+  border-radius: 55px;
   margin: 6px 0;
   transition: 0.4s;
 }
@@ -78,12 +94,82 @@ img {
   transform: translate(0, -11px) rotate(45deg);
 }
 
-header h1 {
-  margin: 0 auto;
+header {
+  position: fixed;
+  align-items: center;
+  height: 60px;
+  z-index: 111;
+  width: 100%;
+  background: rgb(30, 44, 90);
 }
+header nav {
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  margin: auto;
+}
+@media screen and (max-width: 768px) {
+  header nav h1 {
+    width: 30%;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 769px) {
+  header nav h1 {
+    width: 10%;
+    margin-left: 1rem;
+  }
+}
+header nav h1 img {
+  width: 100%;
+  vertical-align: middle;
+}
+@media screen and (max-width: 768px) {
+  header nav .menu {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) {
+  header nav .menu {
+    width: 60%;
+    gap: 25px;
+  }
+}
+header nav .menu li {
+  height: 10%;
+}
+header nav .menu li a {
+  display: block;
+}
+header nav .menu li a img {
+  vertical-align: middle;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  header nav .sns {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) {
+  header nav .sns {
+    width: 12%;
+    gap: 8px;
+  }
+  header nav .sns li a {
+    display: block;
+  }
+  header nav .sns li a img {
+    vertical-align: middle;
+    width: 100%;
+  }
+}
+
 .contentsCotainer swiper-container {
   width: 100%;
   height: 100%;
+  max-height: 600px;
 }
 @media screen and (max-width: 768px) {
   .contentsCotainer swiper-container {
@@ -102,32 +188,116 @@ header h1 {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .contentsCotainer .shortCutWrap {
   height: 100%;
 }
 .contentsCotainer .shortCutWrap ul {
   height: 100%;
-  flex-wrap: wrap;
 }
-.contentsCotainer .shortCutWrap ul li {
-  width: 50%;
+@media screen and (max-width: 768px) {
+  .contentsCotainer .shortCutWrap ul {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 769px) {
+  .contentsCotainer .shortCutWrap ul {
+    width: 100%;
+    height: 180px;
+    justify-content: center;
+  }
+  .contentsCotainer .shortCutWrap ul li:nth-child(1),
+  .contentsCotainer .shortCutWrap ul li:nth-child(6) {
+    flex: 1;
+  }
+  .contentsCotainer .shortCutWrap ul li:nth-child(1) {
+    text-align: right;
+    background-color: #ee781f;
+  }
+  .contentsCotainer .shortCutWrap ul li:nth-child(6) {
+    background-color: #00341f;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contentsCotainer .shortCutWrap ul li {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 769px) {
+  .contentsCotainer .shortCutWrap ul li {
+    min-width: 100px;
+    height: 100%;
+  }
+}
+.contentsCotainer .shortCutWrap ul li a {
+  display: inline-block;
+  height: 100%;
+}
+.contentsCotainer .shortCutWrap ul li a figure {
+  height: 100%;
 }
 .contentsCotainer .shortCutWrap ul li a figure img {
+  vertical-align: top;
   width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .contentsCotainer .shortCutWrap ul li a figure img {
+    width: 100%;
+  }
 }
 
 .descContainer {
   text-align: center;
 }
 .descContainer article {
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: 800px;
 }
-.descContainer article .introHead {
-  display: flex;
+@media screen and (min-width: 769px) {
+  .descContainer article {
+    display: flex;
+  }
+}
+.descContainer article .asideBox {
   position: sticky;
-  top: 0;
+  top: 60px;
+  width: 25%;
+  max-width: 340px;
+  height: 14vw;
+  min-height: 270px;
+  max-height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 768px) {
+  .descContainer article .asideBox {
+    display: none;
+  }
+}
+.descContainer article .introWrap {
+  flex: 1;
+}
+.descContainer article .introHead {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 60px;
+}
+@media screen and (min-width: 769px) {
+  .descContainer article .introHead {
+    display: none;
+  }
+}
+.descContainer article .introHead li:nth-child(2) {
+  width: 75%;
+  height: 60%;
 }
 .descContainer article .introHead li h2 {
   height: 100%;
@@ -140,6 +310,7 @@ header h1 {
   width: 10%;
 }
 .descContainer article .introHead li:not(:nth-child(2)) figure img {
+  height: 100%;
   width: 100%;
 }
 .descContainer article .introDesc {
@@ -148,15 +319,25 @@ header h1 {
   align-items: center;
   gap: 2rem;
 }
-.descContainer article .introDesc li {
-  width: 80%;
-}
 .descContainer article .introDesc li p {
-  font-size: 1.2rem;
+  font-family: NanumR;
+  font-size: 2.4vw;
+}
+@media screen and (min-width: 769px) {
+  .descContainer article .introDesc li p {
+    font-size: min(1vw, 20px);
+  }
 }
 .descContainer article h3 {
+  font-family: NanumB;
   font-size: 4.2vw;
   padding-bottom: 50px;
+}
+@media screen and (min-width: 769px) {
+  .descContainer article h3 {
+    font-size: min(2.2vw, 30px);
+    padding-bottom: 50px;
+  }
 }
 .descContainer article .prxBg {
   padding: 5vh 0;
@@ -170,3 +351,145 @@ header h1 {
   width: 100%;
   height: 100%;
 }
+
+footer {
+  height: 30vh;
+  background-color: #ccc;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+footer p {
+  font-size: min(1.6vw, 20px);
+}
+footer .linkBtn {
+  height: 18%;
+  justify-content: center;
+  gap: 2%;
+}
+footer .linkBtn li {
+  max-width: 200px;
+  width: 20%;
+}
+footer .linkBtn li a {
+  display: block;
+}
+footer .linkBtn li a img {
+  width: 100%;
+}
+footer .snsBtn {
+  height: 20%;
+  justify-content: center;
+  gap: 2%;
+}
+footer .snsBtn li {
+  max-width: 80px;
+  width: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .snsBtn li a {
+  display: block;
+}
+footer .snsBtn li a img {
+  width: 100%;
+}
+footer h2 {
+  margin-top: 2rem;
+}
+
+#art1 .asideBox {
+  background-image: url(./images/img_intro1.png);
+}
+#art1 h3 {
+  color: #ffe100;
+}
+
+#art2 {
+  flex-direction: row-reverse;
+}
+#art2 .asideBox {
+  background-image: url(./images/img_yyd1.png);
+}
+#art2 span {
+  color: #ee781f;
+}
+
+#art3 .asideBox {
+  background-image: url(./images/img_bp1.png);
+}
+#art3 span {
+  color: #ffe100;
+}
+
+#art4 {
+  flex-direction: row-reverse;
+}
+#art4 .asideBox {
+  background-image: url(./images/img_ddp1.png);
+}
+#art4 span {
+  color: #7057a3;
+}
+
+#art5 .asideBox {
+  background-image: url(./images/img_cgc1.png);
+}
+#art5 span {
+  color: #eb6ea5;
+}
+
+#art6 {
+  flex-direction: row-reverse;
+}
+#art6 .asideBox {
+  background-image: url(./images/img_sm1.png);
+}
+#art6 span {
+  color: #c4d700;
+}
+
+#art7 {
+  height: 80vh;
+}
+#art7 h4 {
+  color: #fff;
+  margin-top: 8rem;
+  font-size: 1.5rem;
+  animation-name: move;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  text-shadow: 0 0 10px #1e2c5a;
+}
+#art7 .asideBox {
+  background-image: url(./images/img_cht1.png);
+}
+
+aside {
+  display: none;
+  position: fixed;
+  text-align: center;
+  line-height: 50px;
+  font-family: NanumB;
+  bottom: 5%;
+  right: 3%;
+  width: 50px;
+  height: 50px;
+  background-color: #ffe100;
+  border-radius: 100%;
+}
+aside a {
+  display: block;
+  height: 100%;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}/*# sourceMappingURL=index.css.map */
